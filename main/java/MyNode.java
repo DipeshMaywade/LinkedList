@@ -1,5 +1,5 @@
 
-public class MyNode<T> implements INode {
+public class MyNode<T>{
     private T key;
     private MyNode next;
 
@@ -10,7 +10,7 @@ public class MyNode<T> implements INode {
     public MyNode getNext(){
         return next;
     }
-    public void setNext (MyNode next){
+    public void setNext (MyNode next) {
         this.next = next;
     }
 }
