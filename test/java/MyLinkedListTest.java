@@ -127,10 +127,32 @@ public class MyLinkedListTest {
         INode newNodePosition = myLinkedList.searchAndInsert(newNode,secondNode);
         myLinkedList.printMyNode();
         boolean result = myLinkedList.head.equals(firstNode) &&
-                myLinkedList.head.getNext().equals(secondNode) &&
-                newNodePosition.getNext().equals(newNode) &&
-                myLinkedList.tail.equals(thirdNode);
+                         myLinkedList.head.getNext().equals(secondNode) &&
+                         newNodePosition.getNext().equals(newNode) &&
+                         myLinkedList.tail.equals(thirdNode);
+        Assert.assertTrue(result);
+    }
 
+    @Test
+    public void given3numbersWhenLinkedListShouldBeAbleToSerchAndDelete() {
+        MyNode<Integer> firstNode = new MyNode<>(56);
+        MyNode<Integer> secondNode = new MyNode<>(30);
+        MyNode<Integer> thirdNode = new MyNode<>(70);
+        MyNode<Integer> fourthNode = new MyNode<>(63);
+
+        MyLinkedList myLinkedList = new MyLinkedList();
+
+        myLinkedList.append(firstNode);
+        myLinkedList.append(secondNode);
+        myLinkedList.append(thirdNode);
+        myLinkedList.append(fourthNode);
+        myLinkedList.printMyNode();
+        myLinkedList.deleteNode(secondNode);
+        myLinkedList.printMyNode();
+
+        boolean result = myLinkedList.head.equals(firstNode) &&
+                myLinkedList.head.getNext().equals(thirdNode) &&
+                myLinkedList.tail.equals(fourthNode);
         Assert.assertTrue(result);
     }
 }

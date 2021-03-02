@@ -2,28 +2,28 @@ public class MyLinkedList {
     public INode head;
     public INode tail;
 
-    public MyLinkedList(){
+    public MyLinkedList() {
         this.head = null;
         this.tail = null;
     }
 
     public void add(INode newNode) {
-        if (this.tail==null){
-            this.tail=newNode;
+        if (this.tail == null) {
+            this.tail = newNode;
         }
-        if (this.head==null){
-            this.head=newNode;
-        }else {
+        if (this.head == null) {
+            this.head = newNode;
+        } else {
             INode tempNode = this.head;
-            this.head= newNode;
+            this.head = newNode;
             this.head.setNext(tempNode);
         }
     }
 
-    public void printMyNode(){
+    public void printMyNode() {
         StringBuffer myNode = new StringBuffer("My Nodes: ");
         INode tempNode = head;
-        while (tempNode.getNext() != null){
+        while (tempNode.getNext() != null) {
             myNode.append(tempNode.getKey());
             if (!tempNode.equals(tail)) myNode.append("->");
             tempNode = tempNode.getNext();
@@ -33,12 +33,12 @@ public class MyLinkedList {
     }
 
     public void append(INode newNode) {
-        if (this.head==null){
-            this.head=newNode;
+        if (this.head == null) {
+            this.head = newNode;
         }
-        if (this.tail==null){
-            this.tail=newNode;
-        }else {
+        if (this.tail == null) {
+            this.tail = newNode;
+        } else {
             this.tail.setNext(newNode);
             this.tail = newNode;
         }
@@ -56,17 +56,17 @@ public class MyLinkedList {
 
     public void popLast() {
         INode tempNode = head;
-        while (!tempNode.getNext().equals(tail)){
-            tempNode=tempNode.getNext();
+        while (!tempNode.getNext().equals(tail)) {
+            tempNode = tempNode.getNext();
         }
-        this.tail=tempNode;
+        this.tail = tempNode;
         tempNode.setNext(null);
     }
 
     public boolean search(INode key) {
-        INode tempNode = head;
-        while(tempNode !=null && tempNode.getNext()!=null) {
-            if (tempNode.getKey()==key.getKey()) {
+        INode tempNode = this.head;
+        while (tempNode != null && tempNode.getNext() != null) {
+            if (tempNode.getKey() == key.getKey()) {
                 return true;
             }
             tempNode = tempNode.getNext();
@@ -79,10 +79,24 @@ public class MyLinkedList {
         boolean check = search(positionNode);
         if (check) {
             insert(positionNode, newNode);
-        } else{
+        } else {
             System.out.println("position not found");
         }
-        INode newPosition = head.getNext();
+        INode newPosition = this.head.getNext();
         return newPosition;
     }
+
+    public void deleteNode(INode myNode) {
+        boolean check = search(myNode);
+        if (check) {
+            INode tempNode = this.head;
+            INode previousNode = null;
+            while (tempNode != null && tempNode.getKey() != myNode.getKey()) {
+                previousNode = tempNode;
+                tempNode = tempNode.getNext();
+            }
+            previousNode.setNext(tempNode.getNext());
+        }
+    }
 }
+
