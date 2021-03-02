@@ -53,4 +53,25 @@ public class MyLinkedListTest {
                 myLinkedList.tail.equals(thirdNode);
         Assert.assertTrue(result);
     }
+
+    @Test
+    public void given3numbersWhenLinkedListShouldBeAbleToDeleteFirstElement() {
+        MyNode<Integer> firstNode = new MyNode<>(56);
+        MyNode<Integer> secondNode = new MyNode<>(30);
+        MyNode<Integer> thirdNode = new MyNode<>(70);
+        MyLinkedList myLinkedList = new MyLinkedList();
+        myLinkedList.append(firstNode);
+        myLinkedList.append(secondNode);
+        myLinkedList.append(thirdNode);
+        System.out.println("Before deleting first Value linked list is");
+        myLinkedList.printMyNode();
+        myLinkedList.pop();
+        System.out.println("After deleting first Value");
+        myLinkedList.printMyNode();
+
+        boolean result = myLinkedList.head.equals(secondNode) &&
+                myLinkedList.head.getNext().equals(thirdNode) &&
+                myLinkedList.tail.equals(thirdNode);
+        Assert.assertTrue(result);
+    }
 }
