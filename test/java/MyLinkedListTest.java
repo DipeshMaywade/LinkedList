@@ -86,7 +86,7 @@ public class MyLinkedListTest {
         myLinkedList.append(thirdNode);
         System.out.println("Before deleting last Value linked list is");
         myLinkedList.printMyNode();
-        myLinkedList.popLast();
+        myLinkedList.popLastElement();
         System.out.println("After deleting first Value linked list is");
         myLinkedList.printMyNode();
 
