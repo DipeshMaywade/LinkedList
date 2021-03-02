@@ -73,4 +73,16 @@ public class MyLinkedList {
         }
         return false;
     }
+
+
+    public INode searchAndInsert(INode newNode, INode positionNode) {
+        boolean check = search(positionNode);
+        if (check) {
+            insert(positionNode, newNode);
+        } else{
+            System.out.println("position not found");
+        }
+        INode newPosition = head.getNext();
+        return newPosition;
+    }
 }

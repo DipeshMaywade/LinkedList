@@ -109,4 +109,28 @@ public class MyLinkedListTest {
         Assert.assertEquals(true,myLinkedList.search(secondNode));
 
     }
+
+    @Test
+    public void given3numbersWhenLinkedListShouldBeAbleToSerchAndInsert() {
+        MyNode<Integer> firstNode = new MyNode<>(56);
+        MyNode<Integer> secondNode = new MyNode<>(30);
+        MyNode<Integer> thirdNode = new MyNode<>(70);
+        MyNode<Integer> newNode = new MyNode<>(63);
+
+        MyLinkedList myLinkedList = new MyLinkedList();
+
+        myLinkedList.append(firstNode);
+        myLinkedList.append(secondNode);
+        myLinkedList.append(thirdNode);
+        myLinkedList.printMyNode();
+
+        INode newNodePosition = myLinkedList.searchAndInsert(newNode,secondNode);
+        myLinkedList.printMyNode();
+        boolean result = myLinkedList.head.equals(firstNode) &&
+                myLinkedList.head.getNext().equals(secondNode) &&
+                newNodePosition.getNext().equals(newNode) &&
+                myLinkedList.tail.equals(thirdNode);
+
+        Assert.assertTrue(result);
+    }
 }
