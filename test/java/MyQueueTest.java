@@ -34,7 +34,6 @@ public class MyQueueTest {
         INode dequeueValue = myQueue.dequeue();
         myQueue.printQueue();
 
-
         Assert.assertEquals(thirdNode,dequeueValue);
     }
 }
