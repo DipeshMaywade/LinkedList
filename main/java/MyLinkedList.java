@@ -1,4 +1,4 @@
-public class MyLinkedList {
+public class MyLinkedList<K> {
     public INode head;
     public INode tail;
 
@@ -99,6 +99,39 @@ public class MyLinkedList {
                 tempNode = tempNode.getNext();
             }
             previousNode.setNext(tempNode.getNext());
+        }
+
+    }
+
+    public INode<K> search(K key) {
+        INode<K> tempNode = head;
+        while (tempNode != null && tempNode.getNext() != null) {
+            if (tempNode.getKey().equals(key)) {
+                return tempNode;
+            }
+            tempNode = tempNode.getNext();
+        }
+        return null;
+    }
+
+   public void printMyNodes(){
+       System.out.println("My Nodes " + head);
+   }
+
+    public String toString(){
+        return "MyLinkedListNodes{" + head + '}';
+    }
+
+
+    public void appends(INode<K> newNode) {
+        if (this.head == null) {
+            this.head = newNode;
+        }
+        if (this.tail == null) {
+            this.tail = newNode;
+        } else {
+            this.tail.setNext(newNode);
+            this.tail = newNode;
         }
     }
 }
