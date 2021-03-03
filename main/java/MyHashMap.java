@@ -4,7 +4,6 @@ public class MyHashMap<K, V> {
 
     public MyHashMap(){
         this.myLinkedList = new MyLinkedList<>();
-
     }
 
     public V get(K key) {
